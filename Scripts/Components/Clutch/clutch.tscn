@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8ct06qbr7org"]
+
+[ext_resource type="Script" path="res://Scripts/Components/Clutch/clutch.gd" id="1_wh3ck"]
+[ext_resource type="Script" path="res://Scripts/FSM/state_machine.gd" id="2_0pnlj"]
+[ext_resource type="Script" path="res://Scripts/Components/Clutch/States/disengage.gd" id="3_2couv"]
+[ext_resource type="Script" path="res://Scripts/Components/Clutch/States/engage.gd" id="4_dimsj"]
+[ext_resource type="Script" path="res://Scripts/Components/Clutch/States/slip.gd" id="5_bih1j"]
+
+[node name="Clutch" type="Node"]
+script = ExtResource("1_wh3ck")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_0pnlj")
+
+[node name="Disengage" type="Node" parent="StateMachine"]
+script = ExtResource("3_2couv")
+
+[node name="Engage" type="Node" parent="StateMachine"]
+script = ExtResource("4_dimsj")
+
+[node name="Slip" type="Node" parent="StateMachine"]
+script = ExtResource("5_bih1j")
