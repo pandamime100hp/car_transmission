@@ -13,9 +13,11 @@ func physics_update(_delta: float) -> void:
 			self.transmission.shifting = true
 			self.transmission.current_gear -= 1
 			
-		if self.transmission.current_gear > 0 and self.transmission.shifting:
+		if self.transmission.current_gear > 0 and self.transmission.shifting and self.transmission.clutch.engaged:
+			self.transmission.shifting = false
 			finished.emit(DRIVE)
-		elif self.transmission.current_gear < 0 and self.transmission.shifting:
+		elif self.transmission.current_gear < 0 and self.transmission.shifting and self.transmission.clutch.engaged:
+			self.transmission.shifting = false
 			finished.emit(REVERSE)
 		
 	self.transmission.shifting = false
