@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4c6uofmv1ndr"]
+[gd_scene load_steps=8 format=3 uid="uid://b4c6uofmv1ndr"]
 
 [ext_resource type="Script" path="res://Scripts/Components/Transmission/transmission.gd" id="1_ccync"]
 [ext_resource type="Script" path="res://Scripts/FSM/state_machine.gd" id="2_pdpdm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Components/Transmission/States/drive.gd" id="4_mpqwu"]
 [ext_resource type="Script" path="res://Scripts/Components/Transmission/States/reverse.gd" id="5_txgnr"]
 [ext_resource type="PackedScene" uid="uid://c8ct06qbr7org" path="res://Scripts/Components/Clutch/clutch.tscn" id="6_otbe2"]
+[ext_resource type="Script" path="res://Scripts/Components/Transmission/States/shift.gd" id="7_86wbv"]
 
 [node name="Transmission" type="Node" node_paths=PackedStringArray("clutch")]
 script = ExtResource("1_ccync")
@@ -25,3 +26,6 @@ script = ExtResource("4_mpqwu")
 
 [node name="Reverse" type="Node" parent="StateMachine"]
 script = ExtResource("5_txgnr")
+
+[node name="Shift" type="Node" parent="StateMachine"]
+script = ExtResource("7_86wbv")

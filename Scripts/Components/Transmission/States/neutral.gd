@@ -4,6 +4,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	print(self.owner.name + ": Entering NEUTRAL state.")
 	
 func physics_update(_delta: float) -> void:
+	self.transmission.shifting = false
 	if self.transmission.is_shift_possible():
 		if Input.is_action_just_released("ui_up"):
 			self.transmission.shifting = true
