@@ -5,14 +5,11 @@
 [ext_resource type="Script" path="res://Scripts/Components/Transmission/States/neutral.gd" id="3_jte3d"]
 [ext_resource type="Script" path="res://Scripts/Components/Transmission/States/drive.gd" id="4_mpqwu"]
 [ext_resource type="Script" path="res://Scripts/Components/Transmission/States/reverse.gd" id="5_txgnr"]
-[ext_resource type="PackedScene" uid="uid://c8ct06qbr7org" path="res://Scripts/Components/Clutch/clutch.tscn" id="6_otbe2"]
+[ext_resource type="Script" path="res://Scripts/Components/Transmission/States/shift.gd" id="7_86wbv"]
 
-[node name="Transmission" type="Node" node_paths=PackedStringArray("clutch")]
+[node name="Transmission" type="Node"]
 script = ExtResource("1_ccync")
 gears = 6
-clutch = NodePath("Clutch")
-
-[node name="Clutch" parent="." instance=ExtResource("6_otbe2")]
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_pdpdm")
@@ -25,3 +22,6 @@ script = ExtResource("4_mpqwu")
 
 [node name="Reverse" type="Node" parent="StateMachine"]
 script = ExtResource("5_txgnr")
+
+[node name="Shift" type="Node" parent="StateMachine"]
+script = ExtResource("7_86wbv")

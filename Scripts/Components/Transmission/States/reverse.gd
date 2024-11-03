@@ -5,18 +5,12 @@ func enter(previous_state_path: String, data := {}) -> void:
 	
 func physics_update(_delta: float) -> void:
 	if Input.is_action_just_released("ui_up"):
-		self.transmission.shifting = true
-		self.transmission.current_gear += 1
-		
-	if Input.is_action_just_released("ui_down"):
-		if self.transmission.current_gear != -1:
-			self.transmission.shifting = true
-			self.transmission.current_gear -= 1
-		
-	if self.transmission.current_gear == 0 and self.transmission.shifting and self.transmission.clutch.engaged:
-		finished.emit(NEUTRAL)
-	
-	self.transmission.shifting = false
+		if self.transmission.gears_limit() and self.transmission.clutch.engaged:
+			self.transmission.current_gear += 1
+			self.finished.emit(SHIFT)
+			
+func update(_delta: float) -> void:
+	self.transmission.hud.gear_label.text = "R"
 
 func exit() -> void:
 	print(self.owner.name + ": Exiting REVERSE state.")
