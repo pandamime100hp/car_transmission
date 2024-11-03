@@ -8,6 +8,9 @@ func physics_update(_delta: float) -> void:
 	
 	if Input.is_action_just_released("clutch"):
 		finished.emit(self.DISENGAGE)
+		
+func update(_delta: float) -> void:
+	self.clutch.hud.clutch_label.text = "ON"
 	
 func exit() -> void:
 	print(self.owner.name + ": Exiting ENGAGE state.")

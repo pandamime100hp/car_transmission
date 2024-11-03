@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvprt1aj83hyc"]
+
+[ext_resource type="PackedScene" uid="uid://xm6exsss6ymr" path="res://Scenes/UI/hud.tscn" id="1_wyseh"]
+[ext_resource type="PackedScene" uid="uid://b4c6uofmv1ndr" path="res://Scenes/Compoenents/Transmission/transmission.tscn" id="2_6nca7"]
+[ext_resource type="PackedScene" uid="uid://c8ct06qbr7org" path="res://Scenes/Compoenents/Clutch/clutch.tscn" id="2_mdims"]
+
+[node name="Main" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_wyseh")]
+
+[node name="Car" type="Node" parent="."]
+
+[node name="Clutch" parent="Car" instance=ExtResource("2_mdims")]
+
+[node name="Transmission" parent="Car" instance=ExtResource("2_6nca7")]
+
+[connection signal="ready" from="HUD" to="Car/Clutch" method="_on_hud_ready"]
+[connection signal="ready" from="HUD" to="Car/Transmission" method="_on_hud_ready"]
+[connection signal="ready" from="Car/Clutch" to="Car/Transmission" method="_on_clutch_ready"]
