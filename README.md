@@ -4,8 +4,10 @@ Code created to better understand the idea of a FSM (Finite State Machine) throu
 of a car transmission. I wanted to build this in order to work on my own game and to better 
 understand some of Godots fundamentals. 
 
-The project is only CLI based, so no actual 2D scenes but going forward I would like to connect code 
-together into bigger scenes and projects. As it stands, this code will be reused in future projects.
+The project now has a UI which displays the interaction between the clutch and gear the car is 
+currently in with some instructions of usage, as shown below:
+
+![image](https://github.com/user-attachments/assets/519eb85e-9020-4140-8505-4b4b1b5724ab)
 
 ## Design
 The ´car_transmission´ project consists of two main components, a transmission and a clutch. The 
